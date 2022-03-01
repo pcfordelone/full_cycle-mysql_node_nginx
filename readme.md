@@ -14,10 +14,13 @@ O retorno da aplicação node.js para o nginx deverá ser:
 Finalizando, o projeto precisa funcionar baixando este repositório e rodando apenas um comando que é listado abaixo no item **Instalação**
 
 ## Instalação
-Baixe este repositório e rode o comando a seguir:
+Baixe este repositório e rode o comando a seguir e aguarde a mensagem 'app | Aplicação Rodando'
 
 ```sh
-docker-compose up -d --build
+docker-compose up --build
 ```
 
 Obs.: Requer o Docker instalado.
+
+## URL
+Para visualizar o projeto funcionando, acesse a URL <localhost:8080>. 
