@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+    db:
+        build: 
+            context: db
+        command: --innodb-use-native-aio=0
+        container_name: db
+        tty: true ## adentrar e digitar sistema
+        restart: always
+        ports:
+            - 3306
+        environment: 
+            - MYSQL_ROOT_PASSWORD=root
+        networks: 
+            - node-network
+
+    app:
+        build: 
+            context: node 
+        container_name: app
+        hostname: app
+        ports:
+            - "3000:3000"
+        networks: 
+            - node-network
+        depends_on:
+            - db
+
+    nginx:
+        build: 
+            context: ./nginx        
+        container_name: nginx
+        networks:
+            - node-network
+        ports: 
+            - "8080:80"
+        depends_on:        
+            - app
+
+networks: 
+    node-network:
