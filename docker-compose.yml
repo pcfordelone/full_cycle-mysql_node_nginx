@@ -18,6 +18,7 @@ services:
     app:
         build: 
             context: node 
+        restart: always
         container_name: app
         hostname: app
         ports:
